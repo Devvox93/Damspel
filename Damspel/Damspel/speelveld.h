@@ -7,25 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#include "hokje.h"
 
 @interface speelveld : NSObject{
     NSArray *rijX;
     NSArray *rijY;
 }
-- (id) initMetGrootte: (int) grootte{
-    self = [super init];
-    if (self){
-//        initalisatie (for loop met grootte variabel
-//        NSMutableArray *myColors;
-//        
-//        myColors = [NSMutableArray arrayWithObjects: @"Red", @"Green", @"Blue", @"Yellow", nil];
-//        
-//        [myColors addObject: @"Indigo"];
-//        [myColors addObject: @"Violet"];
-    }
-    return self;
-}
-- (hokje) getHokje: (int) locX: (int) locY;
+- (id) initMetGrootte: (int) grootte;
+- (hokje *) getHokje: (int) locX: (int) locY;
 - (void) printVeld;
 
 @end

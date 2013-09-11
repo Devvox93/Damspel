@@ -10,4 +10,9 @@
 
 @implementation computer
 
+-(void)selecteer
+{
+    
+}
+
 @end

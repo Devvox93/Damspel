@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#include "speler.h"
 
 @interface computer : speler{
     

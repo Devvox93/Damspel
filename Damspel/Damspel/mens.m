@@ -10,4 +10,17 @@
 
 @implementation mens
 
+- (void) kanSlaan
+{
+    
+}
+- (void) zet
+{
+    
+}
+- (void) selecteer
+{
+    
+}
+
 @end

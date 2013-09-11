@@ -9,5 +9,7 @@
 #import "speler.h"
 
 @implementation speler
+@synthesize steentjes;
+@synthesize kleur;
 
 @end
