@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		CD9E800C17DF2B63006DE19D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CD9E800B17DF2B63006DE19D /* main.c */; };
 		CD9E800E17DF2B63006DE19D /* Damspel.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD9E800D17DF2B63006DE19D /* Damspel.1 */; };
+		CDD07BB917E0843000CC526E /* speelveld.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD07BB817E0843000CC526E /* speelveld.m */; };
+		CDD07BBC17E0844700CC526E /* hokje.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD07BBB17E0844700CC526E /* hokje.m */; };
+		CDD07BBF17E0845D00CC526E /* speler.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD07BBE17E0845C00CC526E /* speler.m */; };
+		CDD07BC217E0847F00CC526E /* computer.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD07BC117E0847F00CC526E /* computer.m */; };
+		CDD07BC517E0848A00CC526E /* mens.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD07BC417E0848A00CC526E /* mens.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +33,16 @@
 		CD9E800817DF2B63006DE19D /* Damspel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Damspel; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD9E800B17DF2B63006DE19D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		CD9E800D17DF2B63006DE19D /* Damspel.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Damspel.1; sourceTree = "<group>"; };
+		CDD07BB717E0843000CC526E /* speelveld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = speelveld.h; sourceTree = "<group>"; };
+		CDD07BB817E0843000CC526E /* speelveld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = speelveld.m; sourceTree = "<group>"; };
+		CDD07BBA17E0844700CC526E /* hokje.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hokje.h; sourceTree = "<group>"; };
+		CDD07BBB17E0844700CC526E /* hokje.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hokje.m; sourceTree = "<group>"; };
+		CDD07BBD17E0845C00CC526E /* speler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = speler.h; sourceTree = "<group>"; };
+		CDD07BBE17E0845C00CC526E /* speler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = speler.m; sourceTree = "<group>"; };
+		CDD07BC017E0847F00CC526E /* computer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = computer.h; sourceTree = "<group>"; };
+		CDD07BC117E0847F00CC526E /* computer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = computer.m; sourceTree = "<group>"; };
+		CDD07BC317E0848A00CC526E /* mens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mens.h; sourceTree = "<group>"; };
+		CDD07BC417E0848A00CC526E /* mens.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mens.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +77,16 @@
 			children = (
 				CD9E800B17DF2B63006DE19D /* main.c */,
 				CD9E800D17DF2B63006DE19D /* Damspel.1 */,
+				CDD07BB717E0843000CC526E /* speelveld.h */,
+				CDD07BB817E0843000CC526E /* speelveld.m */,
+				CDD07BBA17E0844700CC526E /* hokje.h */,
+				CDD07BBB17E0844700CC526E /* hokje.m */,
+				CDD07BBD17E0845C00CC526E /* speler.h */,
+				CDD07BBE17E0845C00CC526E /* speler.m */,
+				CDD07BC017E0847F00CC526E /* computer.h */,
+				CDD07BC117E0847F00CC526E /* computer.m */,
+				CDD07BC317E0848A00CC526E /* mens.h */,
+				CDD07BC417E0848A00CC526E /* mens.m */,
 			);
 			path = Damspel;
 			sourceTree = "<group>";
@@ -118,6 +143,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD9E800C17DF2B63006DE19D /* main.c in Sources */,
+				CDD07BB917E0843000CC526E /* speelveld.m in Sources */,
+				CDD07BBC17E0844700CC526E /* hokje.m in Sources */,
+				CDD07BBF17E0845D00CC526E /* speler.m in Sources */,
+				CDD07BC217E0847F00CC526E /* computer.m in Sources */,
+				CDD07BC517E0848A00CC526E /* mens.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +244,7 @@
 				CD9E801317DF2B63006DE19D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
