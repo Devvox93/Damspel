@@ -8,5 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface computer : speler
+@interface computer : speler{
+    
+}
+- (void) selecteer;
+
 @end

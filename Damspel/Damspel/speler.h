@@ -8,6 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface speler : NSObject
+@interface speler : NSObject{
+    int *steentjes;
+    int *kleur;
+}
+@property (nonatomic, retain) int *steentjes;
+@property (nonatomic, retain) int *kleur;
 
 @end

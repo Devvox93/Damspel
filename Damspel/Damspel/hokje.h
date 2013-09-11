@@ -8,6 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface hokje : NSObject
+@interface hokje : NSObject{
+    int *locX;
+    int *locY;
+    NSString *inhoud = [[NSString alloc] initWithFormat:@"0"];
+}
+@property (nonatomic, retain) int *locX;
+@property (nonatomic, retain) int *locY;
+@property (nonatomic, retain) NSString *inhoud;
 
 @end

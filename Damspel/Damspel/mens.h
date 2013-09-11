@@ -8,6 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface mens : speler
+@interface mens : speler{
+    
+}
+- (void) kanSlaan;
+- (void) zet;
+- (void) selecteer;
 
 @end
