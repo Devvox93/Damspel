@@ -7,6 +7,7 @@
 //
 
 #import "speelveld.h"
+#import "hokje.h"
 
 @implementation speelveld
 
@@ -14,6 +15,13 @@
 {
     self = [super init];
     if (self){
+        hokjes = [[NSDictionary alloc] init];
+        for (int i=0; i<grootte; i++) {
+            hokje *h = [[hokje alloc] init];
+            h.inhoud = @"0";
+            
+            [hokjes insertValue:(id) h inPropertyWithKey:<#(NSString *)#> h.loc]
+        }
         //        initalisatie (for loop met grootte variabel
         //        NSMutableArray *myColors;
         //
@@ -25,9 +33,9 @@
 return self;
 }
 
-- (hokje *) getHokje: (int) locX: (int) locY
+- (hokje *)getHokjeWithLoc: NSString *loc
 {
-    return rijX[0];
+    return hokjes[loc];
 }
 - (void) printVeld
 {

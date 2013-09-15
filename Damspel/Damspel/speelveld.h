@@ -10,11 +10,10 @@
 #include "hokje.h"
 
 @interface speelveld : NSObject{
-    NSArray *rijX;
-    NSArray *rijY;
+    NSDictionary *hokjes;
 }
 - (id) initMetGrootte: (int) grootte;
-- (hokje *) getHokje: (int) locX: (int) locY;
+- (hokje *) getHokjeWithX: (int) locX WithY: (int) locY;
 - (void) printVeld;
 
 @end

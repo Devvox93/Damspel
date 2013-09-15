@@ -9,8 +9,7 @@
 #import "hokje.h"
 
 @implementation hokje
-@synthesize locX;
-@synthesize locY;
+@synthesize loc;
 @synthesize inhoud;
 
 @end
