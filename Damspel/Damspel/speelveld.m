@@ -38,7 +38,7 @@
 
 - (hokje *)getHokjeWithLoc: (NSString *) loc
 {
-    return hokjes[loc];
+    return [hokjes objectForKey:loc];
 }
 
 - (void) printVeld
@@ -48,7 +48,7 @@
         printf("0 ");
         for (int y=0; y<grootte/10; y++) {
             NSString *tempLoc = [[NSString alloc] initWithFormat:@"%d,%d",x,y];
-            hokje *h = hokjes[tempLoc];
+            hokje * h = [hokjes objectForKey:tempLoc];
             if ([h.inhoud  isEqual: @"Z"]) {
                 printf("[Z]");
             }else if ([h.inhoud  isEqual: @"W"]) {
