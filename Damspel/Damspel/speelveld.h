@@ -7,13 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#include "hokje.h"
+#import "hokje.h"
 
 @interface speelveld : NSObject{
     NSDictionary *hokjes;
+    int grootte;
 }
-- (id) initMetGrootte: (int) grootte;
-- (hokje *) getHokjeWithX: (int) locX WithY: (int) locY;
+@property (nonatomic) int grootte;
+
+- (id) initMetGrootte: (int) nieuweGrootte;
+- (hokje *) getHokjeWithLoc: (NSString *) loc;
 - (void) printVeld;
 
 @end

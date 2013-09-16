@@ -7,13 +7,15 @@
 //
 
 #include <stdio.h>
-#include "speelveld.h"
+#import "speelveld.h"
 
 int main(int argc, const char * argv[])
 {
-    printf("   0  1  2  3  4  5  6  7  8  9 \n");
-    speelveld *veld = [[speelveld alloc] init];
-    
+    printf("Hoe veel rijen wil je in het veld? (minimaal '10'");
+    int nieuweGrootte;
+    scanf("%d", &nieuweGrootte);
+    speelveld *veld = [[speelveld alloc] initWithGrootte: nieuweGrootte];
+//    [veld printVeld];
     
     return 0;
 }
