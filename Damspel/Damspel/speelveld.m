@@ -19,7 +19,7 @@
         grootte = nieuweGrootte;
         hokjes = [[NSDictionary alloc] init];
         for (int x=0; x<10; x++) {
-            for (int y=0; y<grootte/10; y++) {
+            for (int y=0; y<grootte; y++) {
                 hokje *h = [[hokje alloc] init];
                 NSString *tempLoc = [[NSString alloc] initWithFormat:@"%d,%d",x,y];
                 h.loc = tempLoc;
@@ -44,9 +44,9 @@
 - (void) printVeld
 {
     printf("   0  1  2  3  4  5  6  7  8  9 \n");
-    for (int x=0; x<10; x++) {
+    for (int y=0; y<grootte; y++) {
         printf("0 ");
-        for (int y=0; y<grootte/10; y++) {
+        for (int x=0; x<10; x++) {
             NSString *tempLoc = [[NSString alloc] initWithFormat:@"%d,%d",x,y];
             hokje * h = [hokjes objectForKey:tempLoc];
             if ([h.inhoud  isEqual: @"Z"]) {
@@ -57,6 +57,7 @@
                 printf("[ ]");
             }
         }
+        printf("\n");
     }
 }
 
