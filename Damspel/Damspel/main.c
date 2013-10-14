@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include "speelveld.h"
 
 int main(int argc, const char * argv[])
 {
