@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD9E800C17DF2B63006DE19D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CD9E800B17DF2B63006DE19D /* main.c */; };
+		CD9E800C17DF2B63006DE19D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9E800B17DF2B63006DE19D /* main.m */; };
 		CD9E800E17DF2B63006DE19D /* Damspel.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD9E800D17DF2B63006DE19D /* Damspel.1 */; };
 		CDD07BB917E0843000CC526E /* speelveld.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD07BB817E0843000CC526E /* speelveld.m */; };
 		CDD07BBC17E0844700CC526E /* hokje.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD07BBB17E0844700CC526E /* hokje.m */; };
@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		CD9E800817DF2B63006DE19D /* Damspel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Damspel; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD9E800B17DF2B63006DE19D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		CD9E800B17DF2B63006DE19D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CD9E800D17DF2B63006DE19D /* Damspel.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Damspel.1; sourceTree = "<group>"; };
 		CDD07BB717E0843000CC526E /* speelveld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = speelveld.h; sourceTree = "<group>"; };
 		CDD07BB817E0843000CC526E /* speelveld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = speelveld.m; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		CD9E800A17DF2B63006DE19D /* Damspel */ = {
 			isa = PBXGroup;
 			children = (
-				CD9E800B17DF2B63006DE19D /* main.c */,
+				CD9E800B17DF2B63006DE19D /* main.m */,
 				CD9E800D17DF2B63006DE19D /* Damspel.1 */,
 				CDD07BB717E0843000CC526E /* speelveld.h */,
 				CDD07BB817E0843000CC526E /* speelveld.m */,
@@ -142,7 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD9E800C17DF2B63006DE19D /* main.c in Sources */,
+				CD9E800C17DF2B63006DE19D /* main.m in Sources */,
 				CDD07BB917E0843000CC526E /* speelveld.m in Sources */,
 				CDD07BBC17E0844700CC526E /* hokje.m in Sources */,
 				CDD07BBF17E0845D00CC526E /* speler.m in Sources */,

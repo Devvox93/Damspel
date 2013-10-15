@@ -11,12 +11,15 @@
 
 int main(int argc, const char * argv[])
 {
-    printf("Hoe veel rijen wil je in het veld? (minimaal '10')\n");
     int nieuweGrootte;
-    scanf("%d", &nieuweGrootte);
+    
+    do{
+        printf("Hoe veel rijen wil je in het veld? (minimaal '10')\n");
+        scanf("%i", &nieuweGrootte);
+    }while (nieuweGrootte < 10);
     
     speelveld *veld = [[speelveld alloc] initWithGrootte: nieuweGrootte];
-//    [veld printVeld];
+    [veld printVeld];
 
     return 0;
 }

@@ -15,7 +15,7 @@
 }
 @property (nonatomic, assign) int grootte;
 
-- (id) initMetGrootte: (int) nieuweGrootte;
+- (id) initWithGrootte: (int) nieuweGrootte;
 - (hokje *) getHokjeWithLoc: (NSString *) loc;
 - (void) printVeld;
 

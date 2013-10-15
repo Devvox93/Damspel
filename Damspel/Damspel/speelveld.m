@@ -12,20 +12,43 @@
 @implementation speelveld
 @synthesize grootte;
 
-- (id) initMetGrootte: (int) nieuweGrootte
+- (id) initWithGrootte: (int) nieuweGrootte
 {
     self = [super init];
     if (self){
         grootte = nieuweGrootte;
-        hokjes = [[NSDictionary alloc] init];
+        hokjes = [[NSMutableDictionary alloc] init];
         for (int x=0; x<10; x++) {
             for (int y=0; y<grootte; y++) {
                 hokje *h = [[hokje alloc] init];
                 NSString *tempLoc = [[NSString alloc] initWithFormat:@"%d,%d",x,y];
                 h.loc = tempLoc;
-                h.inhoud = @"0";
                 
-                [hokjes insertValue:(id) h inPropertyWithKey:tempLoc];
+                if(y<4){
+                    if(y%2 == 0){
+                        if(x%2 == 0){
+                            h.inhoud = @"W";
+                        }
+                    }else{
+                        if(x%2 != 0){
+                            h.inhoud = @"W";
+                        }
+                    }
+                }else if (y>=grootte-4){
+                    if(y%2 == 0){
+                        if(x%2 == 0){
+                            h.inhoud = @"Z";
+                        }
+                    }else{
+                        if(x%2 != 0){
+                            h.inhoud = @"Z";
+                        }
+                    }
+                }else{
+                    h.inhoud = @"0";
+                }
+                
+                [hokjes setValue: h forKey:tempLoc];
                 
                 [tempLoc release];
                 [h release];
@@ -43,9 +66,9 @@
 
 - (void) printVeld
 {
-    printf("   0  1  2  3  4  5  6  7  8  9 \n");
+    printf("\t 0  1  2  3  4  5  6  7  8  9 \n");
     for (int y=0; y<grootte; y++) {
-        printf("0 ");
+        printf("%i \t", y);
         for (int x=0; x<10; x++) {
             NSString *tempLoc = [[NSString alloc] initWithFormat:@"%d,%d",x,y];
             hokje * h = [hokjes objectForKey:tempLoc];
