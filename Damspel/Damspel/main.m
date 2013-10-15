@@ -8,9 +8,13 @@
 
 #include <stdio.h>
 #include "speelveld.h"
+#include "speler.h"
+#include "mens.h"
+#include "computer.h"
 
 int main(int argc, const char * argv[])
 {
+    // Grootte vragen, veld aanmaken en printen.
     int nieuweGrootte;
     
     do{
@@ -21,5 +25,21 @@ int main(int argc, const char * argv[])
     speelveld *veld = [[speelveld alloc] initWithGrootte: nieuweGrootte];
     [veld printVeld];
 
+    // Spelers aanmaken en kleur aan spelers toewijzen
+    computer *ai = [[computer alloc] init];
+    mens *human = [[mens alloc] init];
+    
+    char antwoord;
+    printf("Wil jij de eerste zet doen? (Y/N) ");
+    antwoord = getchar();
+    
+    if(antwoord == 'Y'){
+        ai.kleur = 'Z';
+        human.kleur = 'W';
+    }else{
+        human.kleur = 'Z';
+        ai.kleur = 'W';
+    }
+    
     return 0;
 }

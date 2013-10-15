@@ -10,9 +10,9 @@
     
 @interface speler : NSObject{
     int steentjes;
-    int kleur;
+    char kleur;
 }
 @property (nonatomic, assign) int steentjes;
-@property (nonatomic, assign) int kleur;
+@property (nonatomic, assign) char kleur;
 
 @end
