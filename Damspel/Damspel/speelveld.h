@@ -14,6 +14,7 @@
     int grootte;
 }
 @property (nonatomic, assign) int grootte;
+@property (nonatomic, assign) NSDictionary *hokjes;
 
 - (id) initWithGrootte: (int) nieuweGrootte;
 - (hokje *) getHokjeWithLoc: (NSString *) loc;

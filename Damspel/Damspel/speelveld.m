@@ -11,6 +11,7 @@
 
 @implementation speelveld
 @synthesize grootte;
+@synthesize hokjes;
 
 - (id) initWithGrootte: (int) nieuweGrootte
 {
@@ -27,25 +28,25 @@
                 if(y<4){
                     if(y%2 == 0){
                         if(x%2 == 0){
-                            h.inhoud = @"W";
+                            h.inhoud = 'W';
                         }
                     }else{
                         if(x%2 != 0){
-                            h.inhoud = @"W";
+                            h.inhoud = 'W';
                         }
                     }
                 }else if (y>=grootte-4){
                     if(y%2 == 0){
                         if(x%2 == 0){
-                            h.inhoud = @"Z";
+                            h.inhoud = 'Z';
                         }
                     }else{
                         if(x%2 != 0){
-                            h.inhoud = @"Z";
+                            h.inhoud = 'Z';
                         }
                     }
                 }else{
-                    h.inhoud = @"0";
+                    h.inhoud = '0';
                 }
                 
                 [hokjes setValue: h forKey:tempLoc];
@@ -72,9 +73,9 @@
         for (int x=0; x<10; x++) {
             NSString *tempLoc = [[NSString alloc] initWithFormat:@"%d,%d",x,y];
             hokje * h = [hokjes objectForKey:tempLoc];
-            if ([h.inhoud  isEqual: @"Z"]) {
+            if (h.inhoud  == 'Z') {
                 printf("[Z]");
-            }else if ([h.inhoud  isEqual: @"W"]) {
+            }else if (h.inhoud  == 'W') {
                 printf("[W]");
             }else {
                 printf("[ ]");

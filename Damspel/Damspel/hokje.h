@@ -10,9 +10,9 @@
 
 @interface hokje : NSObject{
     NSString *loc;
-    NSString *inhoud;
+    char inhoud;
 }
 @property (nonatomic, assign) NSString *loc;
-@property (nonatomic, retain) NSString *inhoud;
+@property (nonatomic, retain) char inhoud;
 
 @end

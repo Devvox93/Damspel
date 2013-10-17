@@ -33,12 +33,23 @@ int main(int argc, const char * argv[])
     printf("Wil jij de eerste zet doen? (Y/N) ");
     antwoord = getchar();
     
-    if(antwoord == 'Y'){
+    if (antwoord == 'Y') {
         ai.kleur = 'Z';
         human.kleur = 'W';
-    }else{
+    } else {
         human.kleur = 'Z';
         ai.kleur = 'W';
+    }
+    
+    // Als de mens wit is kan hij de eerste zet doen
+    if (human.kleur == 'W') {
+        [human selecteer];
+    }else{
+        [ai zet];
+    }
+    // Zolang beide spelers nog steentjes hebben wordt er gespeeld.
+    while (human.steentjes > 0 && ai.steentjes > 0) {
+        
     }
     
     return 0;

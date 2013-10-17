@@ -7,12 +7,29 @@
 //
 
 #import "computer.h"
+#import "hokje.h"
 
 @implementation computer
 
--(void)selecteer
+- (bool) kanSlaan:(speelveld *)veld
 {
+    bool kanSlaan = false;
     
+    NSArray *alleHokjes = [veld.hokjes allValues];
+    for (hokje *h in alleHokjes) {
+        if (h.inhoud == self.kleur) {
+            NSString *loc 
+        }
+    }
+    
+    return kanSlaan;
+}
+
+- (void) zet:(speelveld *)veld
+{
+    if ([self kanSlaan:veld]) {
+        
+    }
 }
 
 @end

@@ -8,10 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #include "speler.h"
+#include "speelveld.h"
 
 @interface computer : speler{
     
 }
-- (void) selecteer;
+- (bool) kanSlaan:(speelveld *)veld;
+- (void) zet:(speelveld *)veld;
 
 @end
