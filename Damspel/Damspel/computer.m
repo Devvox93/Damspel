@@ -13,105 +13,121 @@
 
 - (void) automaat:(speelveld *)veld
 {
+    bool geslagen = false;
     NSArray *alleHokjes = [veld.hokjes allValues];
     for (hokje *h in alleHokjes) {
-        if (h.inhoud == self.kleur) {
-            NSString *loc = h.loc;
-            
-            // Locatie van huidig hokje ophalen
-            NSArray *substrings = [loc componentsSeparatedByString:@","];
-            NSString *sub1 = [substrings objectAtIndex:1];
-            NSString *sub2 = [substrings objectAtIndex:2];
-            int hokX = [sub1 intValue];
-            int hokY = [sub2 intValue];
-            
-            // Hokjes checken
-            if (self.kleur == 'W') {
-                NSString *checkLO = [[NSString alloc] initWithFormat:@"%i,%i", hokX-1, hokY+1];
-                NSString *checkRO = [[NSString alloc] initWithFormat:@"%i,%i", hokX+1, hokY+1];
-                hokje *hSla;
+        do {
+            if (h.inhoud == self.kleur) {
+                NSString *loc = h.loc;
                 
-                // Linksonder
-                hSla = [veld.hokjes objectForKey:checkLO];
-                if (hSla.inhoud != self.kleur) {
-                    // Hokje erachter checken
-                    NSString *checkLO2 = [[NSString alloc] initWithFormat:@"%i,%i", hokX-2, hokY+2];
-                    hokje *h2 = [veld.hokjes objectForKey:checkLO2];
+                // Locatie van huidig hokje ophalen
+                NSArray *substrings = [loc componentsSeparatedByString:@","];
+                NSString *sub1 = [substrings objectAtIndex:1];
+                NSString *sub2 = [substrings objectAtIndex:2];
+                int hokX = [sub1 intValue];
+                int hokY = [sub2 intValue];
+                
+                // Hokjes checken
+                if (self.kleur == 'W') {
+                    NSString *checkLO = [[NSString alloc] initWithFormat:@"%i,%i", hokX-1, hokY+1];
+                    NSString *checkRO = [[NSString alloc] initWithFormat:@"%i,%i", hokX+1, hokY+1];
+                    hokje *hTarget;
                     
-                    if (h2.inhoud == '0') {
-                        [self slaMet:h.loc op:checkLO];
+                    // Linksonder
+                    hTarget = [veld.hokjes objectForKey:checkLO];
+                    if (hTarget.inhoud != self.kleur) {
+                        // Hokje erachter checken
+                        NSString *checkLO2 = [[NSString alloc] initWithFormat:@"%i,%i", hokX-2, hokY+2];
+                        hokje *h2 = [veld.hokjes objectForKey:checkLO2];
+                        
+                        if (h2.inhoud == '0') {
+                            [self slaMet:h.loc op:checkLO in:veld.hokjes];
+                            geslagen = true;
+                        }
+                    }else if (hTarget.inhoud == self.kleur) {
+                        // Niks doen
+                    }else if (hTarget.inhoud == '0') {
+                        [self zetVan:h.loc naar:checkLO in:veld.hokjes];
                     }
-                }else if (hSla.inhoud == self.kleur) {
-                    // Niks doen
-                }else if (hSla.inhoud == '0') {
-                    [self zet];
+                    
+                    // Rechtsonder
+                    hTarget = [veld.hokjes objectForKey:checkRO];
+                    if (hTarget.inhoud != self.kleur) {
+                        // Hokje erachter checken
+                        NSString *checkRO2 = [[NSString alloc] initWithFormat:@"%i,%i", hokX-2, hokY+2];
+                        hokje *h2 = [veld.hokjes objectForKey:checkRO2];
+                        
+                        if (h2.inhoud == '0') {
+                            [self slaMet:h.loc op:checkRO in:veld.hokjes];
+                            geslagen = true;
+                        }
+                    }else if (hTarget.inhoud == self.kleur) {
+                        // Niks doen
+                    }else if (hTarget.inhoud == '0') {
+                        [self zetVan:h.loc naar:checkRO in:veld.hokjes];
+                    }
+                }else if (self.kleur == 'Z') {
+                    NSString *checkLB = [[NSString alloc] initWithFormat:@"%i,%i", hokX-1, hokY-1];
+                    NSString *checkRB = [[NSString alloc] initWithFormat:@"%i,%i", hokX+1, hokY-1];
+                    hokje *hTarget;
+                    
+                    // Linksboven
+                    hTarget = [veld.hokjes objectForKey:checkLB];
+                    if (hTarget.inhoud != self.kleur) {
+                        // Hokje erachter checken
+                        NSString *checkLB2 = [[NSString alloc] initWithFormat:@"%i,%i", hokX-2, hokY-2];
+                        hokje *h2 = [veld.hokjes objectForKey:checkLB2];
+                        
+                        if (h2.inhoud == '0') {
+                            [self slaMet:h.loc op:checkLB in:veld.hokjes];
+                            geslagen = true;
+                        }
+                    }else if (hTarget.inhoud == self.kleur) {
+                        // Niks doen
+                    }else if (hTarget.inhoud == '0') {
+                        [self zetVan:h.loc naar:checkLB in:veld.hokjes];
+                    }
+                    
+                    // Rechtsboven
+                    hTarget = [veld.hokjes objectForKey:checkRB];
+                    if (hTarget.inhoud != self.kleur) {
+                        // Hokje erachter checken
+                        NSString *checkRB2 = [[NSString alloc] initWithFormat:@"%i,%i", hokX+2, hokY-2];
+                        hokje *h2 = [veld.hokjes objectForKey:checkRB2];
+                        
+                        if (h2.inhoud == '0') {
+                            [self slaMet:h.loc op:checkRB in:veld.hokjes];
+                            geslagen = true;
+                        }
+                    }else if (hTarget.inhoud == self.kleur) {
+                        // Niks doen
+                    }else if (hTarget.inhoud == '0') {
+                        [self zetVan:h.loc naar:checkRB in:veld.hokjes];
+                    }
                 }
                 
-                // Rechtsonder
-                hSla = [veld.hokjes objectForKey:checkRO];
-                if (hSla.inhoud != self.kleur) {
-                    // Hokje erachter checken
-                    NSString *checkRO2 = [[NSString alloc] initWithFormat:@"%i,%i", hokX-2, hokY+2];
-                    hokje *h2 = [veld.hokjes objectForKey:checkRO2];
-                    
-                    if (h2.inhoud == '0') {
-                        [self slaMet:h.loc op:checkRO];
-                    }
-                }else if (hSla.inhoud == self.kleur) {
-                    // Niks doen
-                }else if (hSla.inhoud == '0') {
-                    [self zet];
-                }
-            }else if (self.kleur == 'Z') {
-                NSString *checkLB = [[NSString alloc] initWithFormat:@"%i,%i", hokX-1, hokY-1];
-                NSString *checkRB = [[NSString alloc] initWithFormat:@"%i,%i", hokX+1, hokY-1];
-                hokje *hSla;
-                
-                // Linksboven
-                hSla = [veld.hokjes objectForKey:checkLB];
-                if (hSla.inhoud != self.kleur) {
-                    // Hokje erachter checken
-                    NSString *checkLB2 = [[NSString alloc] initWithFormat:@"%i,%i", hokX-2, hokY-2];
-                    hokje *h2 = [veld.hokjes objectForKey:checkLB2];
-                    
-                    if (h2.inhoud == '0') {
-                        [self slaMet:h.loc op:checkLB];
-                    }
-                }else if (hSla.inhoud == self.kleur) {
-                    // Niks doen
-                }else if (hSla.inhoud == '0') {
-                    [self zet];
-                }
-                
-                // Rechtsboven
-                hSla = [veld.hokjes objectForKey:checkRB];
-                if (hSla.inhoud != self.kleur) {
-                    // Hokje erachter checken
-                    NSString *checkRB2 = [[NSString alloc] initWithFormat:@"%i,%i", hokX+2, hokY-2];
-                    hokje *h2 = [veld.hokjes objectForKey:checkRB2];
-                    
-                    if (h2.inhoud == '0') {
-                        [self slaMet:h.loc op:checkRB];
-                    }
-                }else if (hSla.inhoud == self.kleur) {
-                    // Niks doen
-                }else if (hSla.inhoud == '0') {
-                    [self zet];
-                }
             }
-            
-        }
+        } while (geslagen == false);
     }
 }
 
-- (void) slaMet:(NSString *)locSteen op:(NSString *)locSla
+- (void) slaMet:(NSString *)locSteen op:(NSString *)locSla in:(NSDictionary *)hokjes
 {
+    hokje *hHuidig = [hokjes objectForKey:locSteen];
+    hokje *hTarget = [hokjes objectForKey:locSla];
     
+    hHuidig.inhoud = '0';
+    hTarget.inhoud = self.kleur;
+    self.steentjesTegenstander = self.steentjesTegenstander-1;
 }
 
-- (void) zet
+- (void) zetVan:(NSString *)locVan naar:(NSString *)locNaar in:(NSDictionary *)hokjes
 {
+    hokje *hHuidig = [hokjes objectForKey:locVan];
+    hokje *hTarget = [hokjes objectForKey:locNaar];
     
+    hHuidig.inhoud = '0';
+    hTarget.inhoud = self.kleur;
 }
 
 @end

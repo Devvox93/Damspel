@@ -9,10 +9,10 @@
 #import <Cocoa/Cocoa.h>
     
 @interface speler : NSObject{
-    int steentjes;
+    int steentjesTegenstander;
     char kleur;
 }
-@property (nonatomic, assign) int steentjes;
+@property (nonatomic, assign) int steentjesTegenstander;
 @property (nonatomic, assign) char kleur;
 
 @end

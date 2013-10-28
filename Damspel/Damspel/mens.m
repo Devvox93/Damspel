@@ -20,7 +20,19 @@
 }
 - (void) selecteer
 {
-    
+    bool gezet = false;
+    do {
+        // Steen selecteren
+        int selX;
+        int selY;
+        printf("Welke steen wil je verplaatsen?\n");
+        scanf("X: %i\n", &selX);
+        scanf("Y: %i\n", &selY);
+        NSString *selLoc = [[NSString alloc] initWithFormat:@"%i,%i", selX, selY];
+        
+        // 
+        
+    } while (gezet == false);
 }
 
 @end

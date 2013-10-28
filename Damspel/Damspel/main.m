@@ -48,7 +48,7 @@ int main(int argc, const char * argv[])
         [ai automaat:veld];
     }
     // Zolang beide spelers nog steentjes hebben wordt er gespeeld.
-    while (human.steentjes > 0 && ai.steentjes > 0) {
+    while (human.steentjesTegenstander > 0 && ai.steentjesTegenstander > 0) {
         
     }
     

@@ -14,7 +14,7 @@
     
 }
 - (void) automaat:(speelveld *)veld;
-- (void) zet;
-- (void) slaMet:(NSString *)locSteen op:(NSString *)locSla;
+- (void) zetVan:(NSString *)locVan naar:(NSString *)locNaar in:(NSDictionary *)hokjes;
+- (void) slaMet:(NSString *)locSteen op:(NSString *)locSla in:(NSDictionary *)hokjes;
 
 @end
