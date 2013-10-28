@@ -7,10 +7,10 @@
 //
 
 #include <stdio.h>
-#include "speelveld.h"
-#include "speler.h"
-#include "mens.h"
-#include "computer.h"
+#import "speelveld.h"
+#import "speler.h"
+#import "mens.h"
+#import "computer.h"
 
 int main(int argc, const char * argv[])
 {
@@ -45,7 +45,7 @@ int main(int argc, const char * argv[])
     if (human.kleur == 'W') {
         [human selecteer];
     }else{
-        [ai zet];
+        [ai automaat:veld];
     }
     // Zolang beide spelers nog steentjes hebben wordt er gespeeld.
     while (human.steentjes > 0 && ai.steentjes > 0) {

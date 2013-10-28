@@ -13,6 +13,6 @@
     char inhoud;
 }
 @property (nonatomic, assign) NSString *loc;
-@property (nonatomic, retain) char inhoud;
+@property (nonatomic, assign) char inhoud;
 
 @end

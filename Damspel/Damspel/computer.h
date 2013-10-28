@@ -13,7 +13,8 @@
 @interface computer : speler{
     
 }
-- (bool) kanSlaan:(speelveld *)veld;
-- (void) zet:(speelveld *)veld;
+- (void) automaat:(speelveld *)veld;
+- (void) zet;
+- (void) slaMet:(NSString *)locSteen op:(NSString *)locSla;
 
 @end
