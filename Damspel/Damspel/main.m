@@ -29,19 +29,25 @@ int main(int argc, const char * argv[])
     computer *ai = [[computer alloc] init];
     mens *human = [[mens alloc] init];
     
-    int antwoord;
-    printf("Wil jij de eerste zet doen? (1 voor ja, 2 voor nee) ");
-    scanf("%i", &antwoord);
-    printf("%i", antwoord);
+    char antwoord[2];
+    printf("Wil jij de eerste zet doen? (Y/N) ");
+    scanf("%1s", antwoord);
     
-    if (antwoord == '1') {
+    NSString *cast = [NSString stringWithFormat:@"%s", antwoord];
+    
+    if ([cast isEqualToString:@"Y"] || [cast isEqualToString:@"y"]) {
         ai.kleur = 'Z';
         human.kleur = 'W';
-    } else {
+        printf("Kleur human: %c", human.kleur);
+    } else if ([cast isEqualToString:@"N"] || [cast isEqualToString:@"n"]) {
         human.kleur = 'Z';
         ai.kleur = 'W';
+    } else {
+        printf("Je hebt geen goed antwoord ingevuld.\n");
     }
-    printf("Na kleur zetten");
+    
+    printf("Na kleur zetten\n");
+    printf("%c", human.kleur);
     
     // Als de mens wit is kan hij de eerste zet doen
     if (human.kleur == 'W') {

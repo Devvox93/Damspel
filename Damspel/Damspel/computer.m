@@ -22,8 +22,8 @@
                 
                 // Locatie van huidig hokje ophalen
                 NSArray *substrings = [loc componentsSeparatedByString:@","];
-                NSString *sub1 = [substrings objectAtIndex:1];
-                NSString *sub2 = [substrings objectAtIndex:2];
+                NSString *sub1 = [substrings objectAtIndex:0];
+                NSString *sub2 = [substrings objectAtIndex:1];
                 int hokX = [sub1 intValue];
                 int hokY = [sub2 intValue];
                 
