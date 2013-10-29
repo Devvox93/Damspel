@@ -53,7 +53,7 @@ int main(int argc, const char * argv[])
     // Als de mens wit is kan hij de eerste zet doen
     if (human.kleur == 'W') {
         printf("Voor zet\n");
-        [human zet:veld];
+        [human selecteer:veld];
         spelerGezet = 0;
         printf("na zet\n");
     }else{
@@ -64,7 +64,7 @@ int main(int argc, const char * argv[])
     // Zolang beide spelers nog steentjes hebben wordt er gespeeld.
     while (human.steentjesTegenstander > 0 && ai.steentjesTegenstander > 0) {
         if (spelerGezet == 1) {
-            [human zet:veld];
+            [human selecteer:veld];
             spelerGezet = 0;
         } else if (spelerGezet == 0) {
             [ai automaat:veld];
