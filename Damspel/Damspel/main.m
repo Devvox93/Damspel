@@ -25,9 +25,11 @@ int main(int argc, const char * argv[])
     speelveld *veld = [[speelveld alloc] initWithGrootte: nieuweGrootte];
     [veld printVeld];
 
-    // Spelers aanmaken en kleur aan spelers toewijzen
+    // Spelers aanmaken, aantal steentjes setten en kleur aan spelers toewijzen
     computer *ai = [[computer alloc] init];
     mens *human = [[mens alloc] init];
+    ai.steentjesTegenstander = 20;
+    human.steentjesTegenstander = 20;
     
     char antwoord[2];
     printf("Wil jij de eerste zet doen? (Y/N) ");
@@ -38,7 +40,7 @@ int main(int argc, const char * argv[])
     if ([cast isEqualToString:@"Y"] || [cast isEqualToString:@"y"]) {
         ai.kleur = 'Z';
         human.kleur = 'W';
-        printf("Kleur human: %c", human.kleur);
+        printf("Kleur human: %c\n", human.kleur);
     } else if ([cast isEqualToString:@"N"] || [cast isEqualToString:@"n"]) {
         human.kleur = 'Z';
         ai.kleur = 'W';
@@ -46,16 +48,11 @@ int main(int argc, const char * argv[])
         printf("Je hebt geen goed antwoord ingevuld.\n");
     }
     
-//    printf("Na kleur zetten\n");
-//    printf("Kleur human: %c\n", human.kleur);
-    
     int spelerGezet;
     // Als de mens wit is kan hij de eerste zet doen
     if (human.kleur == 'W') {
-        printf("Voor zet\n");
         [human selecteer:veld];
         spelerGezet = 0;
-        printf("na zet\n");
     }else{
         [ai automaat:veld];
         spelerGezet = 1;
@@ -63,6 +60,7 @@ int main(int argc, const char * argv[])
     
     // Zolang beide spelers nog steentjes hebben wordt er gespeeld.
     while (human.steentjesTegenstander > 0 && ai.steentjesTegenstander > 0) {
+        [veld printVeld];
         if (spelerGezet == 1) {
             [human selecteer:veld];
             spelerGezet = 0;
@@ -70,9 +68,9 @@ int main(int argc, const char * argv[])
             [ai automaat:veld];
             spelerGezet = 1;
         }
-        
-        [veld printVeld];
     }
+    
+    printf("Spel voorbij!");
     
     return 0;
 }

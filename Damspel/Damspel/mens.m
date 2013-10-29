@@ -12,22 +12,31 @@
 
 - (void) selecteer:(speelveld *)veld
 {
+//    char antwoord[2];
+//    printf("Wil jij de eerste zet doen? (Y/N) ");
+//    scanf("%1s", antwoord);
+//    printf("%s", antwoord);
+    
     bool gezet = false;
     do {
         // Steen selecteren
         int selX;
         int selY;
         printf("Welke steen wil je verplaatsen?\n");
-        scanf("X: %i\n", &selX);
-        scanf("Y: %i\n", &selY);
+        printf("X: ");
+        scanf("%i", &selX);
+        printf("Y: ");
+        scanf("%i", &selY);
         NSString *selLoc = [[NSString alloc] initWithFormat:@"%i,%i", selX, selY];
         
         // Waar neerzetten/slaan?
         int zetX;
         int zetY;
         printf("Waar wil je naartoe verplaatsen?\n");
-        scanf("X: %i\n", &zetX);
-        scanf("Y: %i\n", &zetY);
+        printf("X: ");
+        scanf("%i", &zetX);
+        printf("Y: ");
+        scanf("%i", &zetY);
         NSString *zetLoc = [[NSString alloc] initWithFormat:@"%i,%i", zetX, zetY];
         
         // Check of het slaan is
