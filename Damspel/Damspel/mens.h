@@ -8,12 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #include "speler.h"
+#import "speelveld.h"
 
 @interface mens : speler{
     
 }
 - (void) kanSlaan;
-- (void) zet;
+- (void) zet:(speelveld *)veld;
 - (void) selecteer;
 
 @end

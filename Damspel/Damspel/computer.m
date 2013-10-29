@@ -41,7 +41,7 @@
                         hokje *h2 = [veld.hokjes objectForKey:checkLO2];
                         
                         if (h2.inhoud == '0') {
-                            [self slaMet:h.loc op:checkLO in:veld.hokjes];
+                            [self slaMet:h.loc op:checkLO verplaats:checkLO2 in:veld.hokjes];
                             geslagen = true;
                         }
                     }else if (hTarget.inhoud == self.kleur) {
@@ -58,7 +58,7 @@
                         hokje *h2 = [veld.hokjes objectForKey:checkRO2];
                         
                         if (h2.inhoud == '0') {
-                            [self slaMet:h.loc op:checkRO in:veld.hokjes];
+                            [self slaMet:h.loc op:checkRO verplaats:checkRO2 in:veld.hokjes];
                             geslagen = true;
                         }
                     }else if (hTarget.inhoud == self.kleur) {
@@ -79,7 +79,7 @@
                         hokje *h2 = [veld.hokjes objectForKey:checkLB2];
                         
                         if (h2.inhoud == '0') {
-                            [self slaMet:h.loc op:checkLB in:veld.hokjes];
+                            [self slaMet:h.loc op:checkLB verplaats:checkLB2 in:veld.hokjes];
                             geslagen = true;
                         }
                     }else if (hTarget.inhoud == self.kleur) {
@@ -96,7 +96,7 @@
                         hokje *h2 = [veld.hokjes objectForKey:checkRB2];
                         
                         if (h2.inhoud == '0') {
-                            [self slaMet:h.loc op:checkRB in:veld.hokjes];
+                            [self slaMet:h.loc op:checkRB verplaats:checkRB2 in:veld.hokjes];
                             geslagen = true;
                         }
                     }else if (hTarget.inhoud == self.kleur) {
@@ -111,13 +111,15 @@
     }
 }
 
-- (void) slaMet:(NSString *)locSteen op:(NSString *)locSla in:(NSDictionary *)hokjes
+- (void) slaMet:(NSString *)locSteen op:(NSString *)locSla verplaats:(NSString *)locPlaats in:(NSDictionary *)hokjes
 {
     hokje *hHuidig = [hokjes objectForKey:locSteen];
     hokje *hTarget = [hokjes objectForKey:locSla];
+    hokje *hLeeg = [hokjes objectForKey:locPlaats];
     
     hHuidig.inhoud = '0';
-    hTarget.inhoud = self.kleur;
+    hTarget.inhoud = '0';
+    hLeeg.inhoud = self.kleur;
     self.steentjesTegenstander = self.steentjesTegenstander-1;
 }
 

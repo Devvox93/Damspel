@@ -29,21 +29,25 @@ int main(int argc, const char * argv[])
     computer *ai = [[computer alloc] init];
     mens *human = [[mens alloc] init];
     
-    char antwoord;
-    printf("Wil jij de eerste zet doen? (Y/N) ");
-    antwoord = getchar();
+    int antwoord;
+    printf("Wil jij de eerste zet doen? (1 voor ja, 2 voor nee) ");
+    scanf("%i", &antwoord);
+    printf("%i", antwoord);
     
-    if (antwoord == 'Y') {
+    if (antwoord == '1') {
         ai.kleur = 'Z';
         human.kleur = 'W';
     } else {
         human.kleur = 'Z';
         ai.kleur = 'W';
     }
+    printf("Na kleur zetten");
     
     // Als de mens wit is kan hij de eerste zet doen
     if (human.kleur == 'W') {
-        [human selecteer];
+        printf("Voor zet");
+        [human zet:veld];
+        printf("na zet");
     }else{
         [ai automaat:veld];
     }
