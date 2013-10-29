@@ -10,11 +10,7 @@
 
 @implementation mens
 
-- (void) kanSlaan
-{
-    
-}
-- (void) zet:(speelveld *)veld
+- (void) selecteer:(speelveld *)veld
 {
     bool gezet = false;
     do {
@@ -37,22 +33,42 @@
         // Check of het slaan is
         if (self.kleur == 'W') {
             if (zetY == selY+1) {
-                // zetten
+                [self zet:self van:selLoc naar:zetLoc in:veld.hokjes];
+                gezet = true;
             } else if (zetY == selY+2) {
-                // slaan
+                int slaX;
+                int slaY = selY+1;
+                
+                if (zetX == selX+2) {
+                    slaX = selX+1;
+                } else {
+                    slaX = selX-1;
+                }
+                
+                NSString *slaLoc = [[NSString alloc] initWithFormat:@"%i,%i", slaX, slaY];
+                [self slaMet:self van:selLoc op:slaLoc verplaats:zetLoc in:veld.hokjes];
+                gezet = true;
             }
         } else if (self.kleur == 'Z') {
             if (zetY == selY-1) {
-                // zetten
+                [self zet:self van:selLoc naar:zetLoc in:veld.hokjes];
+                gezet = true;
             } else if (zetY == selY-2) {
-                // slaan
+                int slaX;
+                int slaY = selY+1;
+                
+                if (zetX == selX+2) {
+                    slaX = selX+1;
+                } else {
+                    slaX = selX-1;
+                }
+                
+                NSString *slaLoc = [[NSString alloc] initWithFormat:@"%i,%i", slaX, slaY];
+                [self slaMet:self van:selLoc op:slaLoc verplaats:zetLoc in:veld.hokjes];
+                gezet = true;
             }
         }
     } while (gezet == false);
-}
-- (void) selecteer
-{
-
 }
 
 @end

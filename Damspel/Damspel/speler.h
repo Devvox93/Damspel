@@ -15,4 +15,7 @@
 @property (nonatomic, assign) int steentjesTegenstander;
 @property (nonatomic, assign) char kleur;
 
+- (void) zet:(speler *)speler van:(NSString *)locVan naar:(NSString *)locNaar in:(NSDictionary *)hokjes;
+- (void) slaMet:(speler *)speler van:(NSString *)locSteen op:(NSString *)locSla verplaats:(NSString *)locPlaats in:(NSDictionary *)hokjes;
+
 @end

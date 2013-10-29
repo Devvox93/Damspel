@@ -46,20 +46,32 @@ int main(int argc, const char * argv[])
         printf("Je hebt geen goed antwoord ingevuld.\n");
     }
     
-    printf("Na kleur zetten\n");
-    printf("%c", human.kleur);
+//    printf("Na kleur zetten\n");
+//    printf("Kleur human: %c\n", human.kleur);
     
+    int spelerGezet;
     // Als de mens wit is kan hij de eerste zet doen
     if (human.kleur == 'W') {
-        printf("Voor zet");
+        printf("Voor zet\n");
         [human zet:veld];
-        printf("na zet");
+        spelerGezet = 0;
+        printf("na zet\n");
     }else{
         [ai automaat:veld];
+        spelerGezet = 1;
     }
+    
     // Zolang beide spelers nog steentjes hebben wordt er gespeeld.
     while (human.steentjesTegenstander > 0 && ai.steentjesTegenstander > 0) {
+        if (spelerGezet == 1) {
+            [human zet:veld];
+            spelerGezet = 0;
+        } else if (spelerGezet == 0) {
+            [ai automaat:veld];
+            spelerGezet = 1;
+        }
         
+        [veld printVeld];
     }
     
     return 0;

@@ -13,7 +13,7 @@
 
 - (void) automaat:(speelveld *)veld
 {
-    bool geslagen = false;
+    bool gezet = false;
     NSArray *alleHokjes = [veld.hokjes allValues];
     for (hokje *h in alleHokjes) {
         do {
@@ -41,13 +41,14 @@
                         hokje *h2 = [veld.hokjes objectForKey:checkLO2];
                         
                         if (h2.inhoud == '0') {
-                            [self slaMet:h.loc op:checkLO verplaats:checkLO2 in:veld.hokjes];
-                            geslagen = true;
+                            [self slaMet:self van:h.loc op:checkLO verplaats:checkLO2 in:veld.hokjes];
+                            gezet = true;
                         }
                     }else if (hTarget.inhoud == self.kleur) {
                         // Niks doen
                     }else if (hTarget.inhoud == '0') {
-                        [self zetVan:h.loc naar:checkLO in:veld.hokjes];
+                        [self zet:self van:h.loc naar:checkLO in:veld.hokjes];
+                        gezet = true;
                     }
                     
                     // Rechtsonder
@@ -58,13 +59,14 @@
                         hokje *h2 = [veld.hokjes objectForKey:checkRO2];
                         
                         if (h2.inhoud == '0') {
-                            [self slaMet:h.loc op:checkRO verplaats:checkRO2 in:veld.hokjes];
-                            geslagen = true;
+                            [self slaMet:self van:h.loc op:checkRO verplaats:checkRO2 in:veld.hokjes];
+                            gezet = true;
                         }
                     }else if (hTarget.inhoud == self.kleur) {
                         // Niks doen
                     }else if (hTarget.inhoud == '0') {
-                        [self zetVan:h.loc naar:checkRO in:veld.hokjes];
+                        [self zet:self van:h.loc naar:checkRO in:veld.hokjes];
+                        gezet = true;
                     }
                 }else if (self.kleur == 'Z') {
                     NSString *checkLB = [[NSString alloc] initWithFormat:@"%i,%i", hokX-1, hokY-1];
@@ -79,13 +81,14 @@
                         hokje *h2 = [veld.hokjes objectForKey:checkLB2];
                         
                         if (h2.inhoud == '0') {
-                            [self slaMet:h.loc op:checkLB verplaats:checkLB2 in:veld.hokjes];
-                            geslagen = true;
+                            [self slaMet:self van:h.loc op:checkLB verplaats:checkLB2 in:veld.hokjes];
+                            gezet = true;
                         }
                     }else if (hTarget.inhoud == self.kleur) {
                         // Niks doen
                     }else if (hTarget.inhoud == '0') {
-                        [self zetVan:h.loc naar:checkLB in:veld.hokjes];
+                        [self zet:self van:h.loc naar:checkLB in:veld.hokjes];
+                        gezet = true;
                     }
                     
                     // Rechtsboven
@@ -96,40 +99,20 @@
                         hokje *h2 = [veld.hokjes objectForKey:checkRB2];
                         
                         if (h2.inhoud == '0') {
-                            [self slaMet:h.loc op:checkRB verplaats:checkRB2 in:veld.hokjes];
-                            geslagen = true;
+                            [self slaMet:self van:h.loc op:checkRB verplaats:checkRB2 in:veld.hokjes];
+                            gezet = true;
                         }
                     }else if (hTarget.inhoud == self.kleur) {
                         // Niks doen
                     }else if (hTarget.inhoud == '0') {
-                        [self zetVan:h.loc naar:checkRB in:veld.hokjes];
+                        [self zet:self van:h.loc naar:checkRB in:veld.hokjes];
+                        gezet = true;
                     }
                 }
                 
             }
-        } while (geslagen == false);
+        } while (gezet == false);
     }
-}
-
-- (void) slaMet:(NSString *)locSteen op:(NSString *)locSla verplaats:(NSString *)locPlaats in:(NSDictionary *)hokjes
-{
-    hokje *hHuidig = [hokjes objectForKey:locSteen];
-    hokje *hTarget = [hokjes objectForKey:locSla];
-    hokje *hLeeg = [hokjes objectForKey:locPlaats];
-    
-    hHuidig.inhoud = '0';
-    hTarget.inhoud = '0';
-    hLeeg.inhoud = self.kleur;
-    self.steentjesTegenstander = self.steentjesTegenstander-1;
-}
-
-- (void) zetVan:(NSString *)locVan naar:(NSString *)locNaar in:(NSDictionary *)hokjes
-{
-    hokje *hHuidig = [hokjes objectForKey:locVan];
-    hokje *hTarget = [hokjes objectForKey:locNaar];
-    
-    hHuidig.inhoud = '0';
-    hTarget.inhoud = self.kleur;
 }
 
 @end

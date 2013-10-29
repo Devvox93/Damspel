@@ -13,8 +13,6 @@
 @interface mens : speler{
     
 }
-- (void) kanSlaan;
-- (void) zet:(speelveld *)veld;
-- (void) selecteer;
+- (void) selecteer:(speelveld *)veld;
 
 @end
