@@ -40,18 +40,14 @@
                         NSString *checkLO2 = [[NSString alloc] initWithFormat:@"%i,%i", hokX-2, hokY+2];
                         hokje *h2 = [veld.hokjes objectForKey:checkLO2];
                         
-                        printf("%c", h2.inhoud);
-                        
                         if (h2.inhoud == '0') {
                             [self slaMet:self van:h.loc op:checkLO verplaats:checkLO2 in:veld.hokjes];
-                            printf("Sla\n");
                             gezet = true;
                         }
                     }else if (hTarget.inhoud == self.kleur && gezet == false) {
                         // Niks doen
                     }else if (hTarget.inhoud == '0' && gezet == false) {
                         [self zet:self van:h.loc naar:checkLO in:veld.hokjes];
-                        printf("Zet\n");
                         gezet = true;
                     }
                     
@@ -64,14 +60,12 @@
                         
                         if (h2.inhoud == '0') {
                             [self slaMet:self van:h.loc op:checkRO verplaats:checkRO2 in:veld.hokjes];
-                            printf("Sla\n");
                             gezet = true;
                         }
                     }else if (hTarget.inhoud == self.kleur && gezet == false) {
                         // Niks doen
                     }else if (hTarget.inhoud == '0' && gezet == false) {
                         [self zet:self van:h.loc naar:checkRO in:veld.hokjes];
-                        printf("Zet\n");
                         gezet = true;
                     }
                 }else if (self.kleur == 'Z') {
@@ -88,14 +82,12 @@
                         
                         if (h2.inhoud == '0' && gezet == false) {
                             [self slaMet:self van:h.loc op:checkLB verplaats:checkLB2 in:veld.hokjes];
-                            printf("Sla\n");
                             gezet = true;
                         }
                     }else if (hTarget.inhoud == self.kleur && gezet == false) {
                         // Niks doen
                     }else if (hTarget.inhoud == '0' && gezet == false) {
                         [self zet:self van:h.loc naar:checkLB in:veld.hokjes];
-                        printf("Zet\n");
                         gezet = true;
                     }
                     
@@ -108,14 +100,12 @@
                         
                         if (h2.inhoud == '0') {
                             [self slaMet:self van:h.loc op:checkRB verplaats:checkRB2 in:veld.hokjes];
-                            printf("Sla\n");
                             gezet = true;
                         }
                     }else if (hTarget.inhoud == self.kleur && gezet == false) {
                         // Niks doen
                     }else if (hTarget.inhoud == '0' && gezet == false) {
                         [self zet:self van:h.loc naar:checkRB in:veld.hokjes];
-                        printf("Zet\n");
                         gezet = true;
                     }
                 }

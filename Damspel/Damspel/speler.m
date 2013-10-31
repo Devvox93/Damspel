@@ -24,7 +24,24 @@
     hHuidig.inhoud = '0';
     hTarget.inhoud = '0';
     hLeeg.inhoud = speler.kleur;
-    speler.steentjesTegenstander = self.steentjesTegenstander-1;
+    speler.steentjesTegenstander = speler.steentjesTegenstander-1;
+    
+    // Printen van slaan
+    if ([speler isKindOfClass:[mens class]]) {
+        printf("Jij slaat ");
+    } else if ([speler isKindOfClass:[computer class]]) {
+        printf("De computer slaat ");
+    }
+    
+    printf("%s", [locSla UTF8String]);
+    printf(" met ");
+    printf("%s", [locSteen UTF8String]);
+    printf(" en staat nu op ");
+    printf("%s", [locPlaats UTF8String]);
+    printf(".\n");
+    
+    // Print aantal steentjes
+    printf("De tegenstander heeft nu %i steentjes.\n", speler.steentjesTegenstander);
 }
 
 - (void) zet:(speler *)speler van:(NSString *)locVan naar:(NSString *)locNaar in:(NSDictionary *)hokjes
@@ -34,6 +51,19 @@
     
     hHuidig.inhoud = '0';
     hTarget.inhoud = speler.kleur;
+    
+    // Printen van zet
+    if ([speler isKindOfClass:[mens class]]) {
+        printf("Jij zet ");
+    } else if ([speler isKindOfClass:[computer class]]) {
+        printf("De computer zet ");
+    }
+    
+    printf("van ");
+    printf("%s", [locVan UTF8String]);
+    printf(" naar ");
+    printf("%s", [locNaar UTF8String]);
+    printf(".\n");
 }
 
 @end

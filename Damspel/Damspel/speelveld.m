@@ -67,7 +67,7 @@
 
 - (void) printVeld
 {
-    printf("\t 0  1  2  3  4  5  6  7  8  9 \n");
+    printf("\n\t 0  1  2  3  4  5  6  7  8  9 \n");
     for (int y=0; y<grootte; y++) {
         printf("%i \t", y);
         for (int x=0; x<10; x++) {
@@ -83,6 +83,7 @@
         }
         printf("\n");
     }
+    printf("\n");
 }
 
 @end

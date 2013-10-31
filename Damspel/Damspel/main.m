@@ -48,6 +48,8 @@ int main(int argc, const char * argv[])
         printf("Je hebt geen goed antwoord ingevuld.\n");
     }
     
+    printf("Jouw kleur is: %c\n\n", human.kleur);
+    
     int spelerGezet;
     // Als de mens wit is kan hij de eerste zet doen
     if (human.kleur == 'W') {
