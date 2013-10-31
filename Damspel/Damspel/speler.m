@@ -8,6 +8,8 @@
 
 #import "speler.h"
 #import "hokje.h"
+#import "mens.h"
+#import "computer.h"
 
 @implementation speler
 @synthesize steentjesTegenstander;

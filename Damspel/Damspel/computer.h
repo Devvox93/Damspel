@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #include "speler.h"
-#include "speelveld.h"
+#import "speelveld.h"
 
 @interface computer : speler{
     
