@@ -40,7 +40,6 @@ int main(int argc, const char * argv[])
     if ([cast isEqualToString:@"Y"] || [cast isEqualToString:@"y"]) {
         ai.kleur = 'Z';
         human.kleur = 'W';
-        printf("Kleur human: %c\n", human.kleur);
     } else if ([cast isEqualToString:@"N"] || [cast isEqualToString:@"n"]) {
         human.kleur = 'Z';
         ai.kleur = 'W';

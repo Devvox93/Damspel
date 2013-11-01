@@ -15,6 +15,7 @@
 {
     bool gezet = false;
     NSArray *alleHokjes = [veld.hokjes allValues];
+    
     for (hokje *h in alleHokjes) {
         if (gezet == false) {
             if (h.inhoud == self.kleur) {

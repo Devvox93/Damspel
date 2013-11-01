@@ -12,25 +12,42 @@
 
 - (void) selecteer:(speelveld *)veld
 {
-    // Steen selecteren
+    bool juisteZet = false;
     int selX;
     int selY;
-    printf("Welke steen wil je verplaatsen?\n");
-    printf("X: ");
-    scanf("%i", &selX);
-    printf("Y: ");
-    scanf("%i", &selY);
-    NSString *selLoc = [[NSString alloc] initWithFormat:@"%i,%i", selX, selY];
-    
-    // Waar neerzetten/slaan?
     int zetX;
     int zetY;
-    printf("Waar wil je naartoe verplaatsen?\n");
-    printf("X: ");
-    scanf("%i", &zetX);
-    printf("Y: ");
-    scanf("%i", &zetY);
-    NSString *zetLoc = [[NSString alloc] initWithFormat:@"%i,%i", zetX, zetY];
+    NSString *selLoc;
+    NSString *zetLoc;
+    
+    do {
+        // Steen selecteren
+        printf("Welke steen wil je verplaatsen?\n");
+        printf("X: ");
+        scanf("%i", &selX);
+        printf("Y: ");
+        scanf("%i", &selY);
+        selLoc = [[NSString alloc] initWithFormat:@"%i,%i", selX, selY];
+        
+        // Waar neerzetten/slaan?
+        printf("Waar wil je naartoe verplaatsen?\n");
+        printf("X: ");
+        scanf("%i", &zetX);
+        printf("Y: ");
+        scanf("%i", &zetY);
+        zetLoc = [[NSString alloc] initWithFormat:@"%i,%i", zetX, zetY];
+        
+        NSString *slaCheck = [self slaLocatie:self dictionary:veld.hokjes];
+        if (![slaCheck isEqualToString:@"Geen"]) {
+            if (![zetLoc isEqualToString:slaCheck]) {
+                printf("Voer de juiste zet uit om te slaan.\n");
+            } else {
+                juisteZet = true;
+            }
+        } else {
+            juisteZet = true;
+        }
+    } while (juisteZet == false);
     
     // Check of het slaan is
     if (self.kleur == 'W') {

@@ -16,6 +16,7 @@
 @property (nonatomic, assign) char kleur;
 
 - (void) zet:(speler *)speler van:(NSString *)locVan naar:(NSString *)locNaar in:(NSDictionary *)hokjes;
-- (void) slaMet:(speler *)speler van:(NSString *)locSteen op:(NSString *)locSla verplaats:(NSString *)locPlaats in:(NSDictionary *)hokjes;
+- (void) slaMet:(speler *)speler van:(NSString *)locSel op:(NSString *)locSla verplaats:(NSString *)locPlaats in:(NSDictionary *)hokjes;
+- (NSMutableString *) slaLocatie:(speler *)speler dictionary:(NSDictionary *)hokjes;
 
 @end

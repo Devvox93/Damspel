@@ -15,9 +15,9 @@
 @synthesize steentjesTegenstander;
 @synthesize kleur;
 
-- (void) slaMet:(speler *)speler van:(NSString *)locSteen op:(NSString *)locSla verplaats:(NSString *)locPlaats in:(NSDictionary *)hokjes
+- (void) slaMet:(speler *)speler van:(NSString *)locSel op:(NSString *)locSla verplaats:(NSString *)locPlaats in:(NSDictionary *)hokjes
 {
-    hokje *hHuidig = [hokjes objectForKey:locSteen];
+    hokje *hHuidig = [hokjes objectForKey:locSel];
     hokje *hTarget = [hokjes objectForKey:locSla];
     hokje *hLeeg = [hokjes objectForKey:locPlaats];
     
@@ -35,7 +35,7 @@
     
     printf("%s", [locSla UTF8String]);
     printf(" met ");
-    printf("%s", [locSteen UTF8String]);
+    printf("%s", [locSel UTF8String]);
     printf(" en staat nu op ");
     printf("%s", [locPlaats UTF8String]);
     printf(".\n");
@@ -64,6 +64,62 @@
     printf(" naar ");
     printf("%s", [locNaar UTF8String]);
     printf(".\n");
+}
+
+- (NSString *) slaLocatie:(speler *)speler dictionary:(NSDictionary *)hokjes
+{
+    NSString *slaLocatie = [NSString stringWithFormat:@"Geen"];
+    NSArray *alleHokjes = [hokjes allValues];
+    
+    for (hokje *h in alleHokjes) {
+        if (h.inhoud == self.kleur) {
+            NSString *loc = [[NSString alloc] initWithFormat:@"%@",h.loc];
+            NSArray *substrings = [h.loc componentsSeparatedByString:@","];
+            NSString *sub1 = [substrings objectAtIndex:0];
+            NSString *sub2 = [substrings objectAtIndex:1];
+            int hokX = [sub1 intValue];
+            int hokY = [sub2 intValue];
+            
+            for (hokje *h2 in alleHokjes) {
+                if (![h2.loc isEqualToString:loc]) {
+                    if (h2.inhoud != speler.kleur && h2.inhoud != '0') {
+                        if (speler.kleur == 'W') {
+                            // check slaan onder
+                            NSString *checkLO = [[NSString alloc] initWithFormat:@"%i,%i", hokX-1, hokY+1];
+                            NSString *slaLO = [NSString stringWithFormat:@"%i,%i", hokX-2, hokY+2];
+                            NSString *checkRO = [[NSString alloc] initWithFormat:@"%i,%i", hokX+1, hokY+1];
+                            NSString *slaRO = [NSString stringWithFormat:@"%i,%i", hokX+2, hokY+2];
+                            
+                            if ([h2.loc isEqualToString:checkLO]) {
+                                printf("Je moet slaan op: %s\n", [h2.loc UTF8String]);
+                                return slaLO;
+                            } else if ([h2.loc isEqualToString:checkRO]) {
+                                printf("Je moet slaan op: %s\n", [h2.loc UTF8String]);
+                                return slaRO;
+                            }
+                        } else if (speler.kleur == 'Z') {
+                            // check slaan boven
+                            NSString *checkLB = [[NSString alloc] initWithFormat:@"%i,%i", hokX-1, hokY-1];
+                            NSString *slaLB = [NSString stringWithFormat:@"%i,%i", hokX-2, hokY-2];
+                            NSString *checkRB = [[NSString alloc] initWithFormat:@"%i,%i", hokX+1, hokY-1];
+                            NSString *slaRB = [NSString stringWithFormat:@"%i,%i", hokX+2, hokY-2];
+                            
+                            if ([h2.loc isEqualToString:checkLB]) {
+                                printf("Je moet slaan op: %s\n", [h2.loc UTF8String]);
+                                return slaLB;
+                            } else if ([h2.loc isEqualToString:checkRB]) {
+                                printf("Je moet slaan op: %s\n", [h2.loc UTF8String]);
+                                return slaRB;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    return slaLocatie;
 }
 
 @end
